@@ -1,14 +1,14 @@
 #include <stdio.h>
 
 int main() {
-   int n,s,f;
+   int  n,f;
     printf("Entrez  un nombre : ");
     scanf("%d", &n);
-while(s<1){
-s= n/10;
-f=n%10;
-f=f*10+s%10;
-
-printf("%d",f);
- } return 0;
+    f=0;
+while(n!=0){
+    f=f*10+n%10;
+    n= n/10;
+ } 
+  printf("%d ",f);
+ return 0;
 }
