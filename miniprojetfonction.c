@@ -39,32 +39,39 @@ void afficherLivres(int n)
         printf("Livre %d : %s , %s , %.2f , %d\n", i+1, titre[i], auteur[i], prix[i], quantite[i]);
 }
 
-void rechercherLivre(int n) {
+void rechercherLivre(int n)
+{
     char nom[maxchar];
     int trouve = 0;
-    printf("Titre a rechercher: ");
+    printf("qu il est le titre de livre que vous voullez chercher ? ");
     fgets(nom, maxchar, stdin);
     nom[strcspn(nom, "\n")] = '\0';
 
-    for(int i=0;i<n;i++) {
+    for(int i=0;i<n;i++)
+    {
         if(strcmp(nom, titre[i]) == 0) {
             printf("Livre %d : %s , %s , %.2f , %d\n", i+1, titre[i], auteur[i], prix[i], quantite[i]);
             trouve = 1;
             break;
         }
     }
-    if(!trouve) printf("Ce titre n'existe pas: %s\n", nom);
+    if(trouve==0)
+        printf("Ce titre n'existe pas: %s\n", nom);
+
 }
 
-void modifierQuantite(int n) {
+void modifierQuantite(int n)
+ {
     char nom[maxchar];
     int trouve = 0, nquantite;
-    printf("Titre a modifier: ");
+    printf("qu il est le titre de livre que vous voullez modiffier sa quantite");
     fgets(nom, maxchar, stdin);
     nom[strcspn(nom, "\n")] = '\0';
 
-    for(int i=0;i<n;i++) {
-        if(strcmp(nom, titre[i]) == 0) {
+    for(int i=0;i<n;i++)
+    {
+        if(strcmp(nom, titre[i]) == 0)
+        {
             printf("Nouvelle quantite: ");
             scanf("%d", &nquantite);
             getchar();
@@ -73,19 +80,23 @@ void modifierQuantite(int n) {
             break;
         }
     }
-    if(!trouve) printf("Ce titre n'existe pas: %s\n", nom);
+    if(trouve==0)
+     printf("Ce titre n'existe pas: %s\n", nom);
 }
 
 void supprimerLivre(int *n) {
     char sup[maxchar];
     int trouve = 0;
-    printf("Titre a supprimer: ");
+    printf("qu il est le titre de livre que vous voullez supprimer en stock ");
     fgets(sup, maxchar, stdin);
     sup[strcspn(sup, "\n")] = '\0';
 
-    for(int i=0;i<*n;i++) {
-        if(strcmp(sup, titre[i]) == 0) {
-            for(int j=i;j<*n-1;j++) {
+    for(int i=0;i<*n;i++)
+    {
+        if(strcmp(sup, titre[i]) == 0)
+        {
+            for(int j=i;j<*n-1;j++)
+            {
                 strcpy(titre[j], titre[j+1]);
                 strcpy(auteur[j], auteur[j+1]);
                 prix[j] = prix[j+1];
@@ -96,13 +107,13 @@ void supprimerLivre(int *n) {
             break;
         }
     }
-    if(!trouve) printf("Ce titre n'existe pas: %s\n", sup);
+    if(trouve==0)
+     printf("Ce titre n'existe pas: %s\n", sup);
 }
 
-// --- main ---
 int main() {
-    int n = 0; // عدد الكتب
-    int choix;
+    int n = 0;
+    int c;
 
     do {
         printf("\n======= MENU =======\n");
@@ -112,22 +123,28 @@ int main() {
         printf("4 - Modifier quantite\n");
         printf("5 - Supprimer un livre\n");
         printf("6 - Nombre total de livres\n");
-        printf("0 - Quitter\n");
         printf("Choisissez une option: ");
-        scanf("%d", &choix);
+        scanf("%d", &c);
         getchar();
 
-        switch(choix) {
-            case 1: ajouterLivre(&n); break;
-            case 2: afficherLivres(n); break;
-            case 3: rechercherLivre(n); break;
-            case 4: modifierQuantite(n); break;
-            case 5: supprimerLivre(&n); break;
-            case 6: printf("Nombre total de livres: %d\n", n); break;
-            case 0: printf("Au revoir!\n"); break;
-            default: printf("Option invalide!\n"); break;
+        switch(c)
+         {
+            case 1: ajouterLivre(&n);
+                    break;
+            case 2: afficherLivres(n);
+                    break;
+            case 3: rechercherLivre(n);
+                    break;
+            case 4: modifierQuantite(n);
+                    break;
+            case 5: supprimerLivre(&n);
+                    break;
+            case 6: printf("Nombre total de livres: %d\n", n);
+                    break;
+            default:printf("%d n'est pas une option valide.\n", c);
+                    break;
         }
-    } while(choix != 0);
+    } while(c != 0);
 
     return 0;
 }
