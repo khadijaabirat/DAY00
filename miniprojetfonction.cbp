@@ -2,12 +2,13 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="miniprojetfonction" />
+		<Option title="miniprojectfonction" />
+		<Option execution_dir="C:/Users/DELL/Documents/DAY00/day2/tableaux/miniprojectfonction/" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/miniprojetfonction" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/miniprojectfonction" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +17,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/miniprojetfonction" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/miniprojectfonction" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -31,9 +32,15 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="main.c">
+		<Unit filename="miniprojectfonction/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Extensions />
+		<Unit filename="miniprojectfonction/miniprojectfonction.cbp" />
+		<Unit filename="miniprojetfonction.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
