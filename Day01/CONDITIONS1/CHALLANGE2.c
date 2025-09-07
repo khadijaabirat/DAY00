@@ -4,7 +4,7 @@
 en utilisant l'instruction switch case.*/
 int main() {
     char c;
-    printf("Entrez un caractère : ");
+    printf("Entrez un caractere : ");
     scanf(" %c", &c);
     switch (c) {
         case 'a': printf("%c est une voyelle.\n", c);
