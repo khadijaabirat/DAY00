@@ -7,28 +7,22 @@ char auteur[maxchar][maxchar];
 float prix[maxchar];
 int quantite[maxchar];
 
-void ajouterLivre(int *n)
+void ajouterLivre(int n)
 {
     printf("Titre: ");
-    fgets(titre[*n], maxchar, stdin);
+    fgets(titre[n], maxchar, stdin);
 
     printf("Auteur: ");
-    fgets(auteur[*n], maxchar, stdin);
+    fgets(auteur[n], maxchar, stdin);
 
     printf("Prix: ");
-    scanf("%f", &prix[*n]);
+    scanf("%f", &prix[n]);
 
     printf("Quantite: ");
-    scanf("%d", &quantite[*n]);
+    scanf("%d", &quantite[n]);
 
     getchar();
 
-    (*n)++;
-    if(*n>= maxchar) 
-    {
-        printf("L'espace est plein !\n");
-        return;
-    }
 }
 
 void afficherLivres(int n)
@@ -80,27 +74,28 @@ void modifierQuantite(int n) {
     printf("Ce titre n'existe pas: %s\n", nom);
 }
 
-void supprimerLivre(int *n) {
+void supprimerLivre(int n) 
+{
     char sup[maxchar];
     int trouve = 0;
     printf("Titre a supprimer: ");
     fgets(sup, maxchar, stdin);
-    sup[strcspn(sup, "\n")] = '\0';
 
-    for(int i=0;i<*n;i++) {
+    for(int i=0;i<n;i++) 
+    {
         if(strcmp(sup, titre[i]) == 0) {
-            for(int j=i;j<*n-1;j++) {
+            for(int j=i;j<n-1;j++) {
                 strcpy(titre[j], titre[j+1]);
                 strcpy(auteur[j], auteur[j+1]);
                 prix[j] = prix[j+1];
                 quantite[j] = quantite[j+1];
             }
-            (*n)--;
             trouve = 1;
             break;
         }
     }
-    if(trouve==0) printf("Ce titre n'existe pas: %s\n", sup);
+    if(trouve==0) 
+    printf("Ce titre n'existe pas: %s\n", sup);
 }
 
 int main() {
@@ -120,7 +115,12 @@ int main() {
         getchar();
 
         switch(choix) {
-            case 1: ajouterLivre(&n); 
+            case 1: ajouterLivre(n); 
+                n++;
+                if(n>= maxchar) 
+                {
+                    printf("L'espace est plein !\n");
+                }
             break;
             case 2: afficherLivres(n); 
             break;
@@ -128,7 +128,8 @@ int main() {
             break;
             case 4: modifierQuantite(n); 
             break;
-            case 5: supprimerLivre(&n); 
+            case 5: supprimerLivre(n); 
+            n--;
             break;
             case 6: printf("Nombre total de livres: %d\n", n); 
             break;
