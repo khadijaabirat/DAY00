@@ -53,7 +53,7 @@ void rechercherLivre(int n) {
             break;
         }
     }
-    if(!trouve) printf("Ce titre n'existe pas: %s\n", nom);
+    if(trouve==0) printf("Ce titre n'existe pas: %s\n", nom);
 }
 
 void modifierQuantite(int n) {
@@ -73,7 +73,8 @@ void modifierQuantite(int n) {
             break;
         }
     }
-    if(!trouve) printf("Ce titre n'existe pas: %s\n", nom);
+    if(trouve==0) 
+    printf("Ce titre n'existe pas: %s\n", nom);
 }
 
 void supprimerLivre(int *n) {
@@ -96,12 +97,11 @@ void supprimerLivre(int *n) {
             break;
         }
     }
-    if(!trouve) printf("Ce titre n'existe pas: %s\n", sup);
+    if(trouve==0) printf("Ce titre n'existe pas: %s\n", sup);
 }
 
-// --- main ---
 int main() {
-    int n = 0; // عدد الكتب
+    int n = 0; 
     int choix;
 
     do {
@@ -112,20 +112,25 @@ int main() {
         printf("4 - Modifier quantite\n");
         printf("5 - Supprimer un livre\n");
         printf("6 - Nombre total de livres\n");
-        printf("0 - Quitter\n");
         printf("Choisissez une option: ");
         scanf("%d", &choix);
         getchar();
 
         switch(choix) {
-            case 1: ajouterLivre(&n); break;
-            case 2: afficherLivres(n); break;
-            case 3: rechercherLivre(n); break;
-            case 4: modifierQuantite(n); break;
-            case 5: supprimerLivre(&n); break;
-            case 6: printf("Nombre total de livres: %d\n", n); break;
-            case 0: printf("Au revoir!\n"); break;
-            default: printf("Option invalide!\n"); break;
+            case 1: ajouterLivre(&n); 
+            break;
+            case 2: afficherLivres(n); 
+            break;
+            case 3: rechercherLivre(n); 
+            break;
+            case 4: modifierQuantite(n); 
+            break;
+            case 5: supprimerLivre(&n); 
+            break;
+            case 6: printf("Nombre total de livres: %d\n", n); 
+            break;
+            default: printf("Option invalide!\n"); 
+            break;
         }
     } while(choix != 0);
 
