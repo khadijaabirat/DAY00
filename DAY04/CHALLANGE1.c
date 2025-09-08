@@ -14,6 +14,9 @@ int main()
     {   printf("Entrez Le %d nombre :\n", i+1);
         scanf("%d",&tab[i]);
     }
+           printf("le tableau avant le tri ");
+    for(int i=0;i<nombre;i++)
+      printf(" %d ",tab[i]);
 
     if (nombre>max)
     {
@@ -34,9 +37,11 @@ int main()
         }
 
     }
+           printf("\nle tableau apre le tri ");
+
     for (int i=0;i<nombre;i++)
-    {
-        printf("%d ",tab[i]);
-    }
+    
+      printf(" %d ",tab[i]);
+    
     return 0;
 }
