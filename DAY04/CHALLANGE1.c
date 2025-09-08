@@ -10,6 +10,12 @@ int main()
     int nombre;
     printf("Entrez un nombre des elements : ");
     scanf("%d", &nombre);
+
+    if (nombre>max || nombre<=0)
+    {
+        printf(" nombre des elements est incorect ! ");
+        
+    } 
     for(int i=0;i<nombre;i++)
     {   printf("Entrez Le %d nombre :\n", i+1);
         scanf("%d",&tab[i]);
@@ -18,16 +24,12 @@ int main()
     for(int i=0;i<nombre;i++)
       printf(" %d ",tab[i]);
 
-    if (nombre>max)
-    {
-        printf("L espace est plain ! ");
-    } 
     int nbr;
         for (int i=0;i<nombre;i++)
     {
-        for(int j=0;j<nombre;j++)
+        for(int j=0;j<nombre-1;j++)
         {
-            if (tab[j]<tab[j+1])
+            if (tab[j]>tab[j+1])
             {
                 nbr=tab[j];
             tab[j]=tab[j+1];
