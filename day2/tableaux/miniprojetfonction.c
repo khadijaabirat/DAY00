@@ -53,7 +53,7 @@ void rechercherLivre(int n) {
             break;
         }
     }
-    if(!trouve) printf("Ce titre n'existe pas: %s\n", nom);
+    if(trouve==0) printf("Ce titre n'existe pas: %s\n", nom);
 }
 
 void modifierQuantite(int n) {
@@ -73,7 +73,7 @@ void modifierQuantite(int n) {
             break;
         }
     }
-    if(trouve!=0) 
+    if(trouve==0) 
     printf("Ce titre n'existe pas: %s\n", nom);
 }
 
@@ -97,7 +97,7 @@ void supprimerLivre(int *n) {
             break;
         }
     }
-    if(trouve!=0) printf("Ce titre n'existe pas: %s\n", sup);
+    if(trouve==0) printf("Ce titre n'existe pas: %s\n", sup);
 }
 
 int main() {
