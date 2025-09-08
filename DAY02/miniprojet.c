@@ -49,7 +49,8 @@ int main() {
             printf("Aucun livre disponible.\n");
         }
             for (i = 0; i < n; i++)
-                printf("\nLivre %d : %s , %s , %.2f , %d",i + 1, titre[i], auteur[i], prix[i], quantite[i]);
+                printf("\nLivre %d : %s , %s , %.2f , %d",
+i + 1, titre[i], auteur[i], prix[i], quantite[i]);
             break;
 
         case 3:

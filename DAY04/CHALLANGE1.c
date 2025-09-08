@@ -10,7 +10,7 @@ int main()
     int nombre;
     printf("Entrez un nombre des elements : ");
     scanf("%d", &nombre);
-    for(i=0;i<=nombre;i++)
+    for(int i=0;i<=nombre;i++)
     {   printf("Entrez Le %d nombre :\n", i+1);
         scanf("%d",&tab[i]);
     }
@@ -19,10 +19,10 @@ int main()
     {
         printf("L espace est plain ! ");
     } 
-    int nbr;
-    for (i=0;i<nombre-1;i++)
+    int nbr=tab[0];
+    for (int i=0;i<nombre;i++)
     {
-        for(j=1;j<nombre;j++)
+        for(int j=1;j<=nombre;j++)
         {
             if (tab[j]>tab[i])
             nbr=tab[i];
@@ -32,8 +32,9 @@ int main()
         }
 
     }
-    for (i=0;i<nombre-1;i++)
-    {printf("%d"t[i]);
+    for (int i=0;i<nombre-1;i++)
+    {
+        printf("%d ",tab[i]);
     }
     return 0;
 }
