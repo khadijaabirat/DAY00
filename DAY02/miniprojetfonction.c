@@ -83,8 +83,10 @@ void supprimerLivre(int n)
 
     for(int i=0;i<n;i++) 
     {
-        if(strcmp(sup, titre[i]) == 0) {
-            for(int j=i;j<n-1;j++) {
+        if(strcmp(sup, titre[i]) == 0) 
+        {
+            for(int j=i;j<n-1;j++)
+             {
                 strcpy(titre[j], titre[j+1]);
                 strcpy(auteur[j], auteur[j+1]);
                 prix[j] = prix[j+1];
