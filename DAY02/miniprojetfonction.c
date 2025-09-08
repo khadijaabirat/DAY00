@@ -11,11 +11,9 @@ void ajouterLivre(int *n)
 {
     printf("Titre: ");
     fgets(titre[*n], maxchar, stdin);
-    titre[*n][strcspn(titre[*n], "\n")] = '\0';
 
     printf("Auteur: ");
     fgets(auteur[*n], maxchar, stdin);
-    auteur[*n][strcspn(auteur[*n], "\n")] = '\0';
 
     printf("Prix: ");
     scanf("%f", &prix[*n]);
@@ -26,6 +24,11 @@ void ajouterLivre(int *n)
     getchar();
 
     (*n)++;
+    if(*n>= maxchar) 
+    {
+        printf("L'espace est plein !\n");
+        return;
+    }
 }
 
 void afficherLivres(int n)
@@ -53,7 +56,8 @@ void rechercherLivre(int n) {
             break;
         }
     }
-    if(trouve==0) printf("Ce titre n'existe pas: %s\n", nom);
+    if(trouve==0) 
+    printf("Ce titre n'existe pas: %s\n", nom);
 }
 
 void modifierQuantite(int n) {
@@ -61,7 +65,6 @@ void modifierQuantite(int n) {
     int trouve = 0, nquantite;
     printf("Titre a modifier: ");
     fgets(nom, maxchar, stdin);
-    nom[strcspn(nom, "\n")] = '\0';
 
     for(int i=0;i<n;i++) {
         if(strcmp(nom, titre[i]) == 0) {
