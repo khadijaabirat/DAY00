@@ -28,11 +28,9 @@ int main() {
         case 1:
             printf("Titre: ");
             fgets(titre[n], sizeof(titre[n]), stdin);
-            titre[n][strcspn(titre[n], "\n")] = '\0';
 
             printf("Auteur: ");
             fgets(auteur[n], sizeof(auteur[n]), stdin);
-            auteur[n][strcspn(auteur[n], "\n")] = '\0';
 
             printf("Prix: ");
             scanf("%f", &prix[n]);
@@ -51,22 +49,19 @@ int main() {
             printf("Aucun livre disponible.\n");
         }
             for (i = 0; i < n; i++)
-                printf("\nLivre %d : %s , %s , %.2f , %d",
-                       i + 1, titre[i], auteur[i], prix[i], quantite[i]);
+                printf("\nLivre %d : %s , %s , %.2f , %d",i + 1, titre[i], auteur[i], prix[i], quantite[i]);
             break;
 
         case 3:
             printf("qu il est le titre de livre que vous voullez chercher ?: ");
             fgets(nom, sizeof(nom), stdin);
-            nom[strcspn(nom, "\n")] = '\0';
 
             trouve = 0;
             for (i = 0; i < n; i++)
              {
                 if (strcmp(nom, titre[i]) == 0)
                     {
-                    printf("Livre %d : %s , %s , %.2f , %d\n",
-                           i + 1, titre[i], auteur[i], prix[i], quantite[i]);
+                    printf("Livre %d : %s , %s , %.2f , %d\n",i + 1, titre[i], auteur[i], prix[i], quantite[i]);
                     trouve = 1;
                     break;
                    }
@@ -78,7 +73,6 @@ int main() {
         case 4:
             printf("qu il est le titre de livre que vous voullez modiffier sa quantite ");
             fgets(nom, sizeof(nom), stdin);
-            nom[strcspn(nom, "\n")] = '\0';
 
             trouve = 0;
             for (i = 0; i < n; i++) {
@@ -98,7 +92,6 @@ int main() {
         case 5:
             printf("qu il est le titre de livre que vous voullez supprimer en stock ");
             fgets(sup, sizeof(sup), stdin);
-            sup[strcspn(sup, "\n")] = '\0';
 
             trouve = 0;
             for (i = 0; i < n; i++)
