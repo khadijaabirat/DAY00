@@ -27,9 +27,9 @@ void ajouterContact()
 
     nombreContacts++;
     
-    if(nombreContacts >= MAX) 
+    if(nombreContacts >= MAX || nombreContacts<=0)
     {
-        printf("L'espace est plein !\n");
+        printf(" nombre des elements est incorect ! ");
         return;
     }
 }
