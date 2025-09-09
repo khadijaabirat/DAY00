@@ -22,18 +22,20 @@ int main()
         printf(" nombre des elements est incorect ! ");
     } 
     int nbr;
+   for(int i=0;i<nombre;i++)
+      printf(" %d ",tab[i]);
+
+    int nbr;
         for (int i=0;i<nombre;i++)
-    {
-        int j=nombre-1;
-        while(j!=i) 
-        {
-            if (tab[j]>tab[j-1])
+    {   nbr=tab[1];
+        for(int j=0 ;j<nombre;j++)
+        {   
+            if (tab[j]>tab[j+1]) 
             {
                 nbr=tab[j];
-            tab[j]=tab[j-1];
-            tab[j-1]=nbr;
+            tab[j]=tab[j+1];
+            tab[j+1]=nbr;
             }
-            j--;
 
         }
 
