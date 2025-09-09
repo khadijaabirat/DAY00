@@ -27,7 +27,7 @@ int main()
     int nbr;
         for (int i=0;i<nombre;i++)
     {
-        for(int j=0;j<nombre-1;j++)
+        for(int j=0;j<nombre;j++)
         {
             if (tab[j]>tab[j+1])
             {
